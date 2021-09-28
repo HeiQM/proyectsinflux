@@ -2,25 +2,41 @@
 // import './App.css';
 
 //azucar sintactico: JSX => JS + HTML/XML
-
+//import React from "react";
+import Navbar from "./components/Navbar";
+import Peliculas from "./views/Peliculas";
+import Programastv from "./views/Programastv";
+import Personas from "./views/Personas";
+import Cinesensacional from "./views/Cinesensacional";
+import { BrowserRouter as Router, Switch, Route,
+} from "react-router-dom";
 function App() {
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-         hOLA A TODAS
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Navbar/>
+       <Switch>
+       <Route exact path="/" >
+           <Cinesensacional/>
+         </Route>
+         <Route exact path="/peliculas" >
+           <Peliculas/>
+         </Route>
+
+         <Route exact path="/progtv" >
+           <Programastv/>
+         </Route>
+
+         <Route exact path="/person" >
+           <Personas/>
+         </Route>
+
+       </Switch>
+      </div>
+
+    </Router>
+
   );
 }
 
